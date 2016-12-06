@@ -19,12 +19,26 @@ These can alternatively be set on the command line or via an `Renviron.site` or 
 
 The basic use of the package is super simple and revolves around the `synthesize()` function, which takes a character string and a voice as input:
 
-```{r}
+
+```r
 library("aws.polly")
 
 # list available voices
 list_voices()
+```
 
+```
+##   Gender       Id LanguageCode LanguageName     Name
+## 1 Female   Joanna        en-US   US English   Joanna
+## 2 Female    Salli        en-US   US English    Salli
+## 3 Female Kimberly        en-US   US English Kimberly
+## 4 Female   Kendra        en-US   US English   Kendra
+## 5   Male   Justin        en-US   US English   Justin
+## 6   Male     Joey        en-US   US English     Joey
+## 7 Female      Ivy        en-US   US English      Ivy
+```
+
+```r
 # synthesize some text
 vec <- synthesize("Hello world!", voice = "Joanna")
 ```
