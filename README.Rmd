@@ -1,4 +1,4 @@
-# Package Template for the cloudyr project
+# Speech Synthesis (Text-to-Speech) from AWS Polly
 
 **aws.polly** is a package for [Polly](http://aws.amazon.com/documentation/polly), an Amazon Web Services speech synthesis (computer voice) web service.
 
