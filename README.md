@@ -76,7 +76,7 @@ options(error = NULL)
 ## Installation
 
 [![CRAN](https://www.r-pkg.org/badges/version/aws.polly)](https://cran.r-project.org/package=aws.polly)
-![Downloads](https://cranlogs.r-pkg.org/badges/aws.signature)
+![Downloads](https://cranlogs.r-pkg.org/badges/aws.polly)
 [![Build Status](https://travis-ci.org/cloudyr/aws.polly.png?branch=master)](https://travis-ci.org/cloudyr/aws.polly)
 [![codecov.io](https://codecov.io/github/cloudyr/aws.polly/coverage.svg?branch=master)](https://codecov.io/github/cloudyr/aws.polly?branch=master)
 
