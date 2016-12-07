@@ -2,6 +2,7 @@
 
 export(delete_lexicon)
 export(get_lexicon)
+export(get_synthesis)
 export(list_voices)
 export(pollyHTTP)
 export(put_lexicon)
