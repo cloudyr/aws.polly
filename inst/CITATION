@@ -4,12 +4,12 @@ citHeader("To cite package 'aws.polly' in publications use:")
  vers <- paste("R package version", meta$Version)
  
  citEntry(entry="Manual",
-		  title = "aws.polly: An R Package",
+		  title = "aws.polly: Client for AWS Polly",
 		  author = personList(as.person("Thomas J. Leeper")),
 		  year = year,
 		  note = vers,
 		  textVersion =
 		  paste("Thomas J. Leeper (",
 				year,
-				"). aws.polly: An R Packge. ",
+				"). aws.polly: Client for AWS Polly. ",
 				vers, ".", sep=""))
