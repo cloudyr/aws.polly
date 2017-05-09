@@ -1,21 +1,14 @@
 language: r
-sudo: required
+sudo: false
+cache: packages
 r_packages:
 - knitr
 - covr
 - drat
-r_github_packages:
-- cloudyr/aws.signature
-after_failure:
-  email:
-    recipients:
-    - thosjleeper@gmail.com
-    on_success: change
-    on_failure: change
 after_success:
 - Rscript -e 'library("covr");codecov()'
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash
   drat.sh
 env:
   global:
-    secure: NlVvsoT2y9PqIX0/0glEklrfxiljJmhbxxho9HrmOBb8wJdEKVVI7ZLjRlZ38Xsk4gGcpE+wS74hKY6/ojHo73tzRd4Sc/hswf+GvfeMTSgdjf9HVt3Je8aVOrPc5p2rtDfwBkFyTzc4RTRGetneKSPpUuy+B08EjBNdpQA0ZsQCsQF4T0e4pnh7PJ1tJvlq9+8L2UjuIjf+Hz58PkQP+o/eK3jywO0tnbBLv4HG8OaBtYMbsJHFvTELHvrszqYZ8j+9zFB0CGkxyIKTls5c03AqMGLOwVfXI2W8GJ19xzs/QzUc5tPFukUHC/Qq7ZkrAB8/zZ7gVeQa7i82ydUwpWzTkJZeCdM9J1P4L9wCnWH0KQUxIlKbxy3lKFllRxgtOJ4iK3EHQASfP3664c+92m/EbA8Vp9cj+4Y8iesYaxwZnhyAseWmgL9cULjMmIY/bFIKyg24ophJun1FfNVFNabFj2h4aMQa/txSQi1gepziPsm2/rcedW9mEONF835Mb9oq8wJf5PxYPILwADJ6fXwTGaGephW4cbqEbhT1bphv5gMkyyqQ/805GXwRqkc+aayJJU8Jn/Hdwe/IFcMhYyg6/rZY0d6zsotWxHNiv07ye+s/O7a1UnZgWbLhCFPZoQce9AF6PdGq4ElodWa1EDPuw4fGan5oZmUhtpvWwmc=
+    secure: O9SIPdZW3RO+HzKMTUYVpsDvY19i04wODGaEeG/ylsgSEI3t7HYOjfbpAu2jQ8i8QMho75ry8SIptyGTjpZrO3X6eiUKawRaXeuxpTFB0b0b2yVxqKE1BHjb5eBLlyGNwsTrTq1xSUgROToQGK6i2ssVxjI/YwCx4EYvM1xVIy95/UxuWd2vaP4TxaOIREqZiK569noNh1/zFRRk6uJHSmKrisYjKMRX6WNgZ24L68MuHKGH+AgJTQZ7I0Q4o/E9JdTk5JpKZVHwWS/UKwzXW4BtOciVGppXYz+sW24fILbr+Nzdolps9N1D2wfjYdviBqw2ZcBSnrKVRd5ootyYo7vmc07R6hrIhM9At1pZ6QJS4JodUApZnEGn7Av1iplIsKvgkgQemjNzxRxxjWRX0s4Ed0Uq2GPE50lwjvExfmmveC/B1Pxhatl/Pn8xOGHLjIORO+KHOxkiXBGs0PgF2RYmvRQTdPN0YALxPGEMJb1OI6CEuhNgL/QRVsuehwrLix07gYZkiswnVesw/YgZTet7pfsaIypRVikWmA/qTMIxY/gyUCoI7RuO6/mbQ8ZKctBkobS3whZ9i5BorpP3l3if7BUOsG8NpGzyoq8cLWktogtkDRx2ipCsp/scVeitUuI00fX+qwqEXpTauoOWX/+/CusaFPcnPfDDagAWPvI=
