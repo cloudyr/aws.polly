@@ -11,7 +11,7 @@ get_synthesis(text, voice, format = c("mp3", "ogg_vorbis", "pcm"),
 synthesize(text, voice, ...)
 }
 \arguments{
-\item{text}{Either a plain text character string or a character string containing SSML (\code{ssml} should be set to \code{TRUE}).}
+\item{text}{Either a plain text character string (maximum 1500 characters) or a character string containing SSML (\code{ssml} should be set to \code{TRUE}).}
 
 \item{voice}{A character string specifying the name of an AWS Polly voice. See \code{\link{list_voices}}.}
 
@@ -39,4 +39,3 @@ if (interactive() & require("tuneR")) {
 }
 }
 }
-

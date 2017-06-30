@@ -1,5 +1,6 @@
 # CHANGES TO aws.polly 0.1.3
 
+* Requests to `get_synthesis()` or `synthesize()` now fail when `nchar(text) > 1500`. (#1, h/t Sean Kross)
 * Bumped **aws.signature** dependency to use new, more sophisticated credentials checking.
 
 # CHANGES TO aws.polly 0.1.2

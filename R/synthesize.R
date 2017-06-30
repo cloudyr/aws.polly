@@ -1,7 +1,7 @@
 #' @rdname synthesize
 #' @title Synthesize Speech
 #' @description Pass text to the synthesis API and return an audio file
-#' @param text Either a plain text character string or a character string containing SSML (\code{ssml} should be set to \code{TRUE}).
+#' @param text Either a plain text character string (maximum 1500 characters) or a character string containing SSML (\code{ssml} should be set to \code{TRUE}).
 #' @param voice A character string specifying the name of an AWS Polly voice. See \code{\link{list_voices}}.
 #' @param format A character string specifying an output file format.
 #' @param rate An integer value specifying the audio frequency in Hertz.
@@ -32,6 +32,9 @@ function(text,
     }
     b[["OutputFormat"]] <- match.arg(format)
     b[["SampleRate"]] <- as.character(rate[1L])
+    if (!isTRUE(ssml) && nchar(text) > 1500) {
+        stop("Maximum character limit (1500) exceeded!")
+    }
     b[["Text"]] <- text
     b[["TextType"]] <- if (isTRUE(ssml)) "ssml" else "text"
     b[["VoiceId"]] <- voice
