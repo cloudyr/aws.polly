@@ -1,3 +1,7 @@
+# CHANGES TO aws.polly 0.1.3
+
+* Bumped **aws.signature** dependency to use new, more sophisticated credentials checking.
+
 # CHANGES TO aws.polly 0.1.2
 
 * Created separate `synthesize()` and `get_synthesis()` functions. The former as a convenience function wrapping the latter lower-level function.

@@ -26,21 +26,18 @@ function(action,
          verb = c("GET", "POST", "PUT", "DELETE"),
          version = "v1",
          raw_response = if (verb == "POST") TRUE else FALSE,
-         region = Sys.getenv("AWS_DEFAULT_REGION"), 
-         key = Sys.getenv("AWS_ACCESS_KEY_ID"), 
-         secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"), 
-         session_token = Sys.getenv("AWS_SESSION_TOKEN"),
+         region = NULL, 
+         key = NULL, 
+         secret = NULL, 
+         session_token = NULL,
          ...) {
     verb <- match.arg(verb)
     action <- paste0("/", version, "/", action)
     d_timestamp <- format(Sys.time(), "%Y%m%dT%H%M%SZ", tz = "UTC")
-    if (region == "") {
+    if (is.null(region) || region == "") {
         region <- "us-east-1"
     }
     url <- paste0("https://polly.",region,".amazonaws.com", action)
-    if (key == "") {
-        stop("AWS Access Key ID is missing!")
-    }
     Sig <- signature_v4_auth(
            datetime = d_timestamp,
            region = region,
@@ -85,7 +82,7 @@ function(action,
         }
     }
     
-    if (http_status(r)$category == "client error") {
+    if (http_error(r)) {
         x <- fromJSON(content(r, "text", encoding = "UTF-8"))
         warn_for_status(r)
         h <- headers(r)

@@ -6,10 +6,8 @@
 \usage{
 pollyHTTP(action, query = list(), body = NULL, verb = c("GET", "POST",
   "PUT", "DELETE"), version = "v1", raw_response = if (verb == "POST") TRUE
-  else FALSE, region = Sys.getenv("AWS_DEFAULT_REGION"),
-  key = Sys.getenv("AWS_ACCESS_KEY_ID"),
-  secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
-  session_token = Sys.getenv("AWS_SESSION_TOKEN"), ...)
+  else FALSE, region = NULL, key = NULL, secret = NULL,
+  session_token = NULL, ...)
 }
 \arguments{
 \item{action}{A character string specifying the API action to take}
@@ -46,4 +44,3 @@ This function constructs and signs an Polly API request and returns the results 
 \author{
 Thomas J. Leeper
 }
-
