@@ -2,8 +2,8 @@
 % Please edit documentation in R/aws.polly-package.R
 \docType{package}
 \name{aws.polly-package}
-\alias{aws.polly}
 \alias{aws.polly-package}
+\alias{aws.polly}
 \title{aws.polly}
 \description{
 Client for AWS Polly
@@ -11,11 +11,10 @@ Client for AWS Polly
 \details{
 This is a client for AWS Polly, a speech synthesis service.
 }
-\author{
-Thomas J. Leeper <thosjleeper@gmail.com>
-}
 \seealso{
 \href{http://aws.amazon.com/documentation/polly}{AWS Polly Documentation}
 }
+\author{
+Thomas J. Leeper <thosjleeper@gmail.com>
+}
 \keyword{package}
-
