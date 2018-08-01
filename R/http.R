@@ -19,7 +19,7 @@
 #' @import httr
 #' @import tuneR
 #' @importFrom jsonlite fromJSON toJSON
-#' @importFrom aws.signature signature_v4_auth
+#' @importFrom aws.signature signature_v4_auth locate_credentials
 #' @export
 pollyHTTP <- 
 function(
@@ -38,7 +38,7 @@ function(
   ...
 ) {
     # locate and validate credentials
-    credentials <- locate_credentials(key = key, secret = secret, session_token = session_token, region = region, verbose = verbose)
+    credentials <- aws.signature::locate_credentials(key = key, secret = secret, session_token = session_token, region = region, verbose = verbose)
     key <- credentials[["key"]]
     secret <- credentials[["secret"]]
     session_token <- credentials[["session_token"]]
@@ -49,7 +49,7 @@ function(
     action <- paste0("/", version, "/", action)
     d_timestamp <- format(Sys.time(), "%Y%m%dT%H%M%SZ", tz = "UTC")
     url <- paste0("https://polly.",region,".amazonaws.com", action)
-    Sig <- signature_v4_auth(
+    Sig <- aws.signature::signature_v4_auth(
            datetime = d_timestamp,
            region = region,
            service = "polly",
@@ -70,34 +70,34 @@ function(
     if (!is.null(session_token) && session_token != "") {
         headers[["x-amz-security-token"]] <- session_token
     }
-    H <- do.call(add_headers, headers)
+    H <- do.call(httr::add_headers, headers)
     
     # execute request
     if (verb == "POST") {
         if (length(query)) {
-            r <- POST(url, H, query = query, body = body, encode = "json", ...)
+            r <- httr::POST(url, H, query = query, body = body, encode = "json", ...)
         } else {
-            r <- POST(url, H, body = body, encode = "json", ...)
+            r <- httr::POST(url, H, body = body, encode = "json", ...)
         }
     } else if (verb == "PUT") {
         if (length(query)) {
-            r <- PUT(url, H, query = query, body = body, encode = "json", ...)
+            r <- httr::PUT(url, H, query = query, body = body, encode = "json", ...)
         } else {
-            r <- PUT(url, H, body = body, encode = "json", ...)
+            r <- httr::PUT(url, H, body = body, encode = "json", ...)
         }
     } else if (verb == "DELETE") {
-        r <- DELETE(url, H, ...)
+        r <- httr::DELETE(url, H, ...)
     } else {
         if (length(query)) {
-            r <- GET(url, H, query = query, ...)
+            r <- httr::GET(url, H, query = query, ...)
         } else {
-            r <- GET(url, H, ...)
+            r <- httr::GET(url, H, ...)
         }
     }
     
-    if (http_error(r)) {
-        x <- jsonlite::fromJSON(content(r, "text", encoding = "UTF-8"))
-        warn_for_status(r)
+    if (httr::http_error(r)) {
+        x <- jsonlite::fromJSON(httr::content(r, "text", encoding = "UTF-8"))
+        httr::warn_for_status(r)
         h <- headers(r)
         out <- structure(x, headers = h, class = "aws_error")
         attr(out, "request_canonical") <- Sig$CanonicalRequest
@@ -105,12 +105,12 @@ function(
         attr(out, "request_signature") <- Sig$SignatureHeader
     } else {
         if (isTRUE(raw_response)) { 
-            out <- try(content(r, "raw"))
+            out <- try(httr::content(r, "raw"))
         } else {
             out <- try(jsonlite::fromJSON(content(r, "text", encoding = "UTF-8")), silent = TRUE)
         }
         if (inherits(out, "try-error")) {
-            out <- structure(content(r, "text", encoding = "UTF-8"), "unknown")
+            out <- structure(httr::content(r, "text", encoding = "UTF-8"), "unknown")
         }
     }
     return(out)
