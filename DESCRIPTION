@@ -5,7 +5,13 @@ Version: 0.1.5
 Date: 2017-11-14
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     email = "thosjleeper@gmail.com",
-                    comment = c(ORCID = "0000-0003-4097-6326")))
+                    comment = c(ORCID = "0000-0003-4097-6326")),
+             person(given = "John",
+                    family = "Muschelli",
+                    role = c("aut", "cre"),
+                    email = "muschellij2@gmail.com",
+                    comment = c(ORCID = "0000-0001-6469-1750"))
+           )
 Description: A client for AWS Polly <http://aws.amazon.com/documentation/polly>, a speech synthesis service.
 License: GPL (>= 2)
 URL: https://github.com/cloudyr/aws.polly
