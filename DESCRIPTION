@@ -8,7 +8,7 @@ Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     comment = c(ORCID = "0000-0003-4097-6326")),
              person(given = "John",
                     family = "Muschelli",
-                    role = c("aut", "cre"),
+                    role = c("ctb"),
                     email = "muschellij2@gmail.com",
                     comment = c(ORCID = "0000-0001-6469-1750"))
            )
@@ -22,3 +22,5 @@ Imports:
     aws.signature (>= 0.3.4),
     tuneR
 RoxygenNote: 6.1.0
+Encoding: UTF-8
+

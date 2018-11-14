@@ -1,3 +1,7 @@
+# aws.polly 0.1.5
+
+* Added capabilities for `list_voices` to list all voices and language codes `@muschellij2`. (#5)
+
 # aws.polly 0.1.4
 
 * Fixed a function not found bug in `pollyHTTP()`. (#3)
