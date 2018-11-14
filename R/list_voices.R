@@ -1,20 +1,23 @@
 #' @title List available voices
 #' @description Retrieve a list of available voices
-#' @param language An ISO 3166 country identification tag.
+#' @param language An ISO 3166 country identification tag.  If
+#' \code{NULL}, then a \code{data.frame} of the results are returned.
 #' @param token Optionally, a pagination token.
 #' @param \dots Additional arguments passed to \code{\link{pollyHTTP}}.
 #' @return A data frame of available names.
 #' @examples
 #' \dontrun{
 #' list_voices(language = "cy-GB")
+#' list_voices(language = NULL)
 #' }
 #' @export
-list_voices <- 
+list_voices <-
 function(language = "en-US",
          token,
          ...)
 {
-    query <- list(LanguageCode = language)
+    query <- list()
+    query$LanguageCode <- language
     if (!missing(token)) {
         query[["NextToken"]] <- token
     }
