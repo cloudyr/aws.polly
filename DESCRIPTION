@@ -1,8 +1,8 @@
 Package: aws.polly
 Type: Package
 Title: Client for AWS Polly
-Version: 0.1.5
-Date: 2017-11-14
+Version: 0.1.6
+Date: 2019-08-14
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     email = "thosjleeper@gmail.com",
                     comment = c(ORCID = "0000-0003-4097-6326")),
@@ -21,6 +21,5 @@ Imports:
     jsonlite,
     aws.signature (>= 0.3.4),
     tuneR
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
-

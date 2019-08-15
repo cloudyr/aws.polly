@@ -8,7 +8,7 @@
 #' @param lexicon Optionally, a character vector (max length 5) specifying the names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.
 #' @param ssml A logical indicating whether \code{text} contains SSML markup.
 #' @param \dots Additional arguments passed to \code{\link{pollyHTTP}}.
-#' @return \code{get_synthesis} returns a raw vector (i.e., the bytes representing the audio as the requested file format). \code{synthesize} is a convenience wrapper around that, which returns an object of class \dQuote{Wave} (see \code{\link[tuneR]{Wave}}). 
+#' @return \code{get_synthesis} returns a raw vector (i.e., the bytes representing the audio as the requested file format). \code{synthesize} is a convenience wrapper around that, which returns an object of class \dQuote{Wave} (see \code{\link[tuneR]{Wave}}).
 #' @examples
 #' \dontrun{
 #' hello <- synthesize("hello world!", voice = "Geraint")
@@ -17,7 +17,7 @@
 #' }
 #' }
 #' @export
-get_synthesis <- 
+get_synthesis <-
 function(text,
          voice,
          format = c("mp3", "ogg_vorbis", "pcm"),
@@ -31,7 +31,9 @@ function(text,
         b[["LexiconNames"]] <- lexicon
     }
     b[["OutputFormat"]] <- match.arg(format)
-    b[["SampleRate"]] <- as.character(rate[1L])
+    if (!is.null(rate)) {
+        b[["SampleRate"]] <- as.character(rate[1L])
+    }
     if (!isTRUE(ssml) && nchar(text) > 1500) {
         stop("Maximum character limit (1500) exceeded!")
     }
@@ -45,7 +47,7 @@ function(text,
 #' @rdname synthesize
 #' @importFrom tuneR readMP3
 #' @export
-synthesize <- 
+synthesize <-
 function(text,
          voice,
          ...)
