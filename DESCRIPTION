@@ -3,9 +3,10 @@ Type: Package
 Title: Client for AWS Polly
 Version: 0.1.4
 Date: 2017-08-01
-Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
+Authors@R: c(person("Thomas J.", "Leeper", role = c("aut"),
                     email = "thosjleeper@gmail.com",
                     comment = c(ORCID = "0000-0003-4097-6326")))
+Maintainer: ORPHANED
 Description: A client for AWS Polly <http://aws.amazon.com/documentation/polly>, a speech synthesis service.
 License: GPL (>= 2)
 URL: https://github.com/cloudyr/aws.polly
