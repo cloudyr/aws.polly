@@ -1,3 +1,8 @@
+# aws.polly 0.1.5
+
+* First CRAN release
+* New maintainer @antoine-sachet
+
 # aws.polly 0.1.4
 
 * Fixed a function not found bug in `pollyHTTP()`. (#3)
