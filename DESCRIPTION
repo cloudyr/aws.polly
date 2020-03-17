@@ -1,7 +1,7 @@
 Package: aws.polly
 Type: Package
 Title: Client for AWS Polly
-Version: 0.1.4
+Version: 0.1.5
 Date: 2020-03-10
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut"),
                     email = "thosjleeper@gmail.com",
