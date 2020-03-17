@@ -5,8 +5,15 @@
 \alias{synthesize}
 \title{Synthesize Speech}
 \usage{
-get_synthesis(text, voice, format = c("mp3", "ogg_vorbis", "pcm"),
-  rate = c(22050, 16000, 8000), lexicon = NULL, ssml = FALSE, ...)
+get_synthesis(
+  text,
+  voice,
+  format = c("mp3", "ogg_vorbis", "pcm"),
+  rate = c(22050, 16000, 8000),
+  lexicon = NULL,
+  ssml = FALSE,
+  ...
+)
 
 synthesize(text, voice, ...)
 }

@@ -4,12 +4,21 @@
 \alias{pollyHTTP}
 \title{Execute AWS Polly API Request}
 \usage{
-pollyHTTP(action, query = list(), headers = list(), body = NULL,
-  verb = c("GET", "POST", "PUT", "DELETE"), version = "v1",
+pollyHTTP(
+  action,
+  query = list(),
+  headers = list(),
+  body = NULL,
+  verb = c("GET", "POST", "PUT", "DELETE"),
+  version = "v1",
   raw_response = if (verb == "POST") TRUE else FALSE,
   verbose = getOption("verbose", FALSE),
-  region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"), key = NULL,
-  secret = NULL, session_token = NULL, ...)
+  region = Sys.getenv("AWS_DEFAULT_REGION", "us-east-1"),
+  key = NULL,
+  secret = NULL,
+  session_token = NULL,
+  ...
+)
 }
 \arguments{
 \item{action}{A character string specifying the API action to take}
