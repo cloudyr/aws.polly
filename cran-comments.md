@@ -11,7 +11,7 @@ The note was:
 
 """
 N  checking CRAN incoming feasibility
-   Maintainer: 'Antoine Sachet <antoine.sac@gmail.com>'
+   Maintainer: 'Antoine Sachet <REDACTED>'
 
    New submission
 

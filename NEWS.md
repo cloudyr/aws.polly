@@ -1,6 +1,8 @@
+# aws.polly 0.1.6 (in development)
+
 # aws.polly 0.1.5
 
-* First CRAN release
+* Released on CRAN 2020-03-11
 * New maintainer @antoine-sachet
 
 # aws.polly 0.1.4
