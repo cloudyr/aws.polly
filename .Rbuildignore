@@ -1,3 +1,5 @@
+^aws\.Rproj$
+^\.Rproj\.user$
 .travis.yml
 CONTRIBUTING.md
 README.Rmd
@@ -7,6 +9,5 @@ knitreadme.sh
 ^revdep$
 ^man-roxygen$
 ^.*\.Rproj$
-^\.Rproj\.user$
 ^\.github.?
 ^cran-comments\.md$

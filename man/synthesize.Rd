@@ -24,7 +24,7 @@ synthesize(text, voice, ...)
 
 \item{format}{A character string specifying an output file format.}
 
-\item{rate}{An integer value specifying the audio frequency in Hertz.}
+\item{rate}{An integer value specifying the audio frequency in Hertz. If `NULL`, `AWS` will typically default to either `22050` or `24000` depending on the voice.}
 
 \item{lexicon}{Optionally, a character vector (max length 5) specifying the names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.}
 

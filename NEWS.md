@@ -1,5 +1,7 @@
 # aws.polly 0.1.6 (in development)
 
+* Added capabilities for `list_voices` to list all voices and language codes (`@muschellij2`, #6)
+
 # aws.polly 0.1.5
 
 * Released on CRAN 2020-03-11

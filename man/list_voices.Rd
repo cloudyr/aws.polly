@@ -7,7 +7,7 @@
 list_voices(language = "en-US", token, ...)
 }
 \arguments{
-\item{language}{An ISO 3166 country identification tag.}
+\item{language}{An ISO 3166 country identification tag.  If `NULL`, then voices for all available countries are returned.}
 
 \item{token}{Optionally, a pagination token.}
 
@@ -22,5 +22,6 @@ Retrieve a list of available voices
 \examples{
 \dontrun{
 list_voices(language = "cy-GB")
+list_voices(language = NULL)
 }
 }
