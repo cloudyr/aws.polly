@@ -12,6 +12,9 @@ get_synthesis(
   rate = c(22050, 16000, 8000),
   lexicon = NULL,
   ssml = FALSE,
+  engine = c("standard", "neural"),
+  language = NULL,
+  speech_mark = NULL,
   ...
 )
 
@@ -24,11 +27,20 @@ synthesize(text, voice, ...)
 
 \item{format}{A character string specifying an output file format.}
 
-\item{rate}{An integer value specifying the audio frequency in Hertz.}
+\item{rate}{An integer value specifying the audio frequency in Hertz. If `NULL`, `AWS` will typically default to either `22050` or `24000` depending on the voice.}
 
 \item{lexicon}{Optionally, a character vector (max length 5) specifying the names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.}
 
 \item{ssml}{A logical indicating whether \code{text} contains SSML markup.}
+
+\item{engine}{the standard or neural engine.  Note, you may need to be
+in certain regions depending on the API for neural voices.}
+
+\item{language}{language code for the Synthesize Speech request.
+This is only necessary if using a bilingual voice.}
+
+\item{speech_mark}{The type of speech marks returned for the input text.
+The options are `sentence`, `ssml`, `viseme`, or `word`.}
 
 \item{\dots}{Additional arguments passed to \code{\link{pollyHTTP}}.}
 }

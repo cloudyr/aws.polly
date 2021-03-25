@@ -10,3 +10,4 @@ knitreadme.sh
 ^man-roxygen$
 ^.*\.Rproj$
 ^\.github.?
+^cran-comments\.md$

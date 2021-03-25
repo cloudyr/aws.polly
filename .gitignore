@@ -5,3 +5,4 @@
 aws.s3.Rproj
 revdep/
 ^revdep/.?$
+*.Rproj
