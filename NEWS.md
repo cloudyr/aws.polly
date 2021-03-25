@@ -1,6 +1,7 @@
 # aws.polly 0.1.6 (in development)
 
 * Added capabilities for `list_voices` to list all voices and language codes (`@muschellij2`, #6)
+* Added capabilities for `get_synthesis` for different engines, language codes, and speech_mark (@muschellij2, #12)
 
 # aws.polly 0.1.5
 

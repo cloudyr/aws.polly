@@ -7,6 +7,12 @@
 #' @param rate An integer value specifying the audio frequency in Hertz. If `NULL`, `AWS` will typically default to either `22050` or `24000` depending on the voice.
 #' @param lexicon Optionally, a character vector (max length 5) specifying the names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.
 #' @param ssml A logical indicating whether \code{text} contains SSML markup.
+#' @param engine the standard or neural engine.  Note, you may need to be
+#' in certain regions depending on the API for neural voices.
+#' @param language language code for the Synthesize Speech request.
+#' This is only necessary if using a bilingual voice.
+#' @param speech_mark The type of speech marks returned for the input text.
+#' The options are `sentence`, `ssml`, `viseme`, or `word`.
 #' @param \dots Additional arguments passed to \code{\link{pollyHTTP}}.
 #' @return \code{get_synthesis} returns a raw vector (i.e., the bytes representing the audio as the requested file format). \code{synthesize} is a convenience wrapper around that, which returns an object of class \dQuote{Wave} (see \code{\link[tuneR]{Wave}}).
 #' @examples
@@ -24,6 +30,9 @@ function(text,
          rate = c(22050, 16000, 8000),
          lexicon = NULL,
          ssml = FALSE,
+         engine = c("standard", "neural"),
+         language = NULL,
+         speech_mark = NULL,
          ...)
 {
     b <- list()
@@ -37,6 +46,10 @@ function(text,
     if (!isTRUE(ssml) && nchar(text) > 1500) {
         stop("Maximum character limit (1500) exceeded!")
     }
+    b[["SpeechMarkTypes"]] = speech_mark
+    b[["LanguageCode"]] = language
+    engine = match.arg(engine)
+    b[["Engine"]] <- engine
     b[["Text"]] <- text
     b[["TextType"]] <- if (isTRUE(ssml)) "ssml" else "text"
     b[["VoiceId"]] <- voice

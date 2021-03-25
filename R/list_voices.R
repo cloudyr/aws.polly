@@ -1,6 +1,7 @@
 #' @title List available voices
 #' @description Retrieve a list of available voices
-#' @param language An ISO 3166 country identification tag.  If `NULL`, then voices for all available countries are returned.
+#' @param language An ISO 3166 country identification tag.  If `NULL`,
+#' then voices for all available countries are returned.
 #' @param token Optionally, a pagination token.
 #' @param \dots Additional arguments passed to \code{\link{pollyHTTP}}.
 #' @return A data frame of available names.
