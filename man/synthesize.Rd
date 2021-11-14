@@ -13,7 +13,7 @@ get_synthesis(
   lexicon = deprecated(),
   ssml = FALSE,
   lexicon_names = NULL,
-  sample_rate = c("default", 24000, 22050, 16000, 8000),
+  sample_rate = NULL,
   engine = c("standard", "neural"),
   language = NULL,
   ...
@@ -40,8 +40,9 @@ a character string containing SSML (\code{ssml} should be set to
 \item{lexicon_names}{Optional character vector (max length 5) specifying the
 names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.}
 
-\item{sample_rate}{Audio frequency in Hertz. If `NULL` (default), `AWS` will pick a
-default value depending on the voice, engine and output format.}
+\item{sample_rate}{Audio frequency in Hertz. One of `24000`, `22050`, `16000` or `8000`.
+If `NULL` (default), `AWS` will pick an appropriate value depending on the voice,
+engine and output format.}
 
 \item{engine}{Engine type: either `'standard'` (default) or `'neural'`.
 Not all voices support the neural engine, see \code{\link{list_voices}}.}
