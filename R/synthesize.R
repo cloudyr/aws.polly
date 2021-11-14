@@ -82,6 +82,12 @@ get_synthesis <-
         body <- Filter(Negate(is.null), body)
 
         out <- pollyHTTP(action = "speech", verb = "POST", body = body, ...)
+
+        # Handle AWS errors
+        if (inherits(out, "aws_error")) {
+            stop(out$message)
+        }
+
         return(out)
     }
 
