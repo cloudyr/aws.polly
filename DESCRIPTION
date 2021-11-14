@@ -20,6 +20,7 @@ Imports:
     httr,
     jsonlite,
     aws.signature (>= 0.3.4),
-    tuneR
+    tuneR,
+    lifecycle
 Encoding: UTF-8
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
