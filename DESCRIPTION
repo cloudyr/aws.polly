@@ -1,7 +1,7 @@
 Package: aws.polly
 Type: Package
 Title: Client for AWS Polly
-Version: 0.1.5.9000
+Version: 0.1.6
 Date: 2020-03-10
 Authors@R: c(person("Thomas J.", "Leeper", role = "aut",
                     email = "thosjleeper@gmail.com",
@@ -20,6 +20,7 @@ Imports:
     httr,
     jsonlite,
     aws.signature (>= 0.3.4),
-    tuneR
+    tuneR,
+    lifecycle
 Encoding: UTF-8
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2

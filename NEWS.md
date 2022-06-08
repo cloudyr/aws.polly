@@ -1,6 +1,23 @@
-# aws.polly 0.1.6 (in development)
+# aws.polly 0.1.6 
 
-* Added capabilities for `list_voices` to list all voices and language codes (`@muschellij2`, #6)
+* `list_voices()` can now list voices for all language codes (`@muschellij2`, #6).
+  All voices (for all language codes) are now shown by default. 
+  Use `language = "en-US"` to replicate the previous default.
+
+* `list_voices()` has new arguments `engine` (to filter on engine types) and 
+  `include_additional_languages` (to find bilingual voices with specific additional languages).
+
+* `synthesize()` and `get_synthesis()` have new arguments 
+  `engine` (to specify the engine type) and 
+  `language` (to specify the language code when using bilingual voices).
+  
+* In `synthesize()` and `get_synthesis()`, arguments `rate` and `lexicon` are 
+  deprecated and replaced by `sample_rate` and `lexicon_names`.
+
+* In `synthesize()` and `get_synthesis()`, the default sample rate is no longer 22050 Hz.
+  Instead, AWS will pick the appropriate default based on the voice, engine and output format.
+
+* Speech synthesis now fails with a useful error message when AWS returns an error.
 
 # aws.polly 0.1.5
 

@@ -9,31 +9,53 @@ get_synthesis(
   text,
   voice,
   format = c("mp3", "ogg_vorbis", "pcm"),
-  rate = c(22050, 16000, 8000),
-  lexicon = NULL,
+  rate = deprecated(),
+  lexicon = deprecated(),
   ssml = FALSE,
+  lexicon_names = NULL,
+  sample_rate = NULL,
+  engine = c("standard", "neural"),
+  language = NULL,
   ...
 )
 
 synthesize(text, voice, ...)
 }
 \arguments{
-\item{text}{Either a plain text character string (maximum 1500 characters) or a character string containing SSML (\code{ssml} should be set to \code{TRUE}).}
+\item{text}{Either a plain text character string (maximum 1500 characters) or
+a character string containing SSML (\code{ssml} should be set to
+\code{TRUE}).}
 
-\item{voice}{A character string specifying the name of an AWS Polly voice. See \code{\link{list_voices}}.}
+\item{voice}{Name of an AWS Polly voice. See \code{\link{list_voices}}.}
 
-\item{format}{A character string specifying an output file format.}
+\item{format}{Output file format: one of `'mp3'` (default), `'ogg_vorbis'` or
+`'pcm'`.}
 
-\item{rate}{An integer value specifying the audio frequency in Hertz. If `NULL`, `AWS` will typically default to either `22050` or `24000` depending on the voice.}
+\item{rate}{Deprecated. Use \code{sample_rate} instead.}
 
-\item{lexicon}{Optionally, a character vector (max length 5) specifying the names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.}
+\item{lexicon}{Deprecated. Use \code{lexicon_names} instead.}
 
 \item{ssml}{A logical indicating whether \code{text} contains SSML markup.}
+
+\item{lexicon_names}{Optional character vector (max length 5) specifying the
+names of lexicons to apply during synthesis. See \code{\link{get_lexicon}}.}
+
+\item{sample_rate}{Audio frequency in Hertz. One of `24000`, `22050`, `16000` or `8000`.
+If `NULL` (default), `AWS` will pick an appropriate value depending on the voice,
+engine and output format.}
+
+\item{engine}{Engine type: either `'standard'` (default) or `'neural'`.
+Not all voices support the neural engine, see \code{\link{list_voices}}.}
+
+\item{language}{Optional language code. This is useful for bilingual voices.}
 
 \item{\dots}{Additional arguments passed to \code{\link{pollyHTTP}}.}
 }
 \value{
-\code{get_synthesis} returns a raw vector (i.e., the bytes representing the audio as the requested file format). \code{synthesize} is a convenience wrapper around that, which returns an object of class \dQuote{Wave} (see \code{\link[tuneR]{Wave}}).
+\code{get_synthesis} returns a raw vector (i.e., the bytes
+  representing the audio as the requested file format). \code{synthesize} is
+  a convenience wrapper around that, which returns an object of class
+  \dQuote{Wave} (see \code{\link[tuneR]{Wave}}).
 }
 \description{
 Pass text to the synthesis API and return an audio file
